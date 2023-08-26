@@ -11,7 +11,8 @@ app.use(express.static("public"));
 
 mongoose.connect(
   "mongodb+srv://admin-simbu:74628simbu@cluster0.ivcrsmp.mongodb.net/todolistDB"
-);git 
+);
+git;
 
 const itemSchema = new mongoose.Schema({
   itemName: String,
@@ -93,6 +94,6 @@ app.post("/delete", (req, res) => {
   }
 });
 
-app.listen(3000, function () {
+app.listen(precess.env.PORT || 3000, function () {
   console.log("server started on port 3000");
 });
