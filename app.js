@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -9,10 +10,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect(
-  "mongodb+srv://admin-simbu:74628simbu@cluster0.ivcrsmp.mongodb.net/todolistDB"
-);
-git;
+mongoose.connect(process.env.URI);
 
 const itemSchema = new mongoose.Schema({
   itemName: String,
@@ -94,6 +92,6 @@ app.post("/delete", (req, res) => {
   }
 });
 
-app.listen(precess.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("server started on port 3000");
 });
